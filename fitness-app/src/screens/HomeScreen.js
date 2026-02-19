@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {
   View, Text, ScrollView, TouchableOpacity,
-  StyleSheet, SafeAreaView, StatusBar,
+  StyleSheet, SafeAreaView,
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { WORKOUT_PLANS } from '../data/workouts';
@@ -43,8 +43,7 @@ export default function HomeScreen({ navigation }) {
 
   return (
     <SafeAreaView style={styles.container}>
-      <StatusBar barStyle="light-content" backgroundColor="#1A1A2E" />
-      <ScrollView contentContainerStyle={styles.scroll}>
+<ScrollView contentContainerStyle={styles.scroll}>
         {/* Header */}
         <View style={styles.header}>
           <Text style={styles.greeting}>Guten Tag! 💪</Text>

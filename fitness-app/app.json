@@ -1,4 +1,22 @@
 {
-  "name": "FitnessApp",
-  "displayName": "Fitness App"
+  "expo": {
+    "name": "Fitness App",
+    "slug": "fitness-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "splash": {
+      "backgroundColor": "#0F0F23"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": false
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#0F0F23"
+      }
+    }
+  }
 }
