@@ -16,7 +16,7 @@ export function Step01_Basics() {
       <div className="space-y-8">
         <div className="grid grid-cols-2 gap-6">
           <div className="space-y-3">
-            <p className="text-xs font-mono text-[#888] uppercase tracking-wider">Geschlecht</p>
+            <p className="text-xs font-mono text-[#8080a8] uppercase tracking-wider">Geschlecht</p>
             <div className="flex gap-3">
               {(['male','female'] as const).map((g) => (
                 <Tag key={g} label={g === 'male' ? 'Männlich' : 'Weiblich'}
@@ -26,7 +26,7 @@ export function Step01_Basics() {
             </div>
           </div>
           <div className="space-y-3">
-            <p className="text-xs font-mono text-[#888] uppercase tracking-wider">Alter</p>
+            <p className="text-xs font-mono text-[#8080a8] uppercase tracking-wider">Alter</p>
             <Slider value={inputs.age} min={16} max={70} onChange={(v) => updateInputs({ age: v })} unit=" J." />
           </div>
         </div>

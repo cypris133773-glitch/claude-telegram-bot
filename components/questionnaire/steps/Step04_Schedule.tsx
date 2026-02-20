@@ -14,9 +14,9 @@ export function Step04_Schedule() {
           <Slider value={inputs.trainingDays} min={2} max={6}
             onChange={(v) => updateInputs({ trainingDays: v })}
             label="Trainingstage pro Woche" unit=" Tage" />
-          <div className="bg-[#0f0f12] border border-[#2a2a35] rounded-xl p-4">
-            <p className="text-xs font-mono text-[#888] uppercase tracking-wider mb-1">Optimaler Split</p>
-            <p className="text-[#d4ff00] font-mono font-bold">{split}</p>
+          <div className="bg-[#13132a] border border-[#2d2b55] rounded-xl p-4">
+            <p className="text-xs font-mono text-[#8080a8] uppercase tracking-wider mb-1">Optimaler Split</p>
+            <p className="text-[#818cf8] font-mono font-bold">{split}</p>
           </div>
         </div>
         <Slider value={inputs.sessionDuration} min={30} max={120} step={5}

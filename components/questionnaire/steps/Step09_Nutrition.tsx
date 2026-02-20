@@ -21,7 +21,7 @@ export function Step09_Nutrition() {
         <Slider value={inputs.mealsPerDay} min={2} max={7}
           onChange={(v) => updateInputs({ mealsPerDay: v })} label="Mahlzeiten pro Tag" unit=" Mzl." />
         <div className="space-y-3">
-          <p className="text-xs font-mono text-[#888] uppercase tracking-wider">Ernährungseinschränkungen</p>
+          <p className="text-xs font-mono text-[#8080a8] uppercase tracking-wider">Ernährungseinschränkungen</p>
           <div className="flex flex-wrap gap-3">
             {DIETARY_RESTRICTIONS.map((d) => (
               <Tag key={d.value} label={d.label}

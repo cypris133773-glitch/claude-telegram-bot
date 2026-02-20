@@ -30,7 +30,7 @@ export function Step07_CurrentLifts() {
             onChange={(e) => update(f.key, e.target.value)} />
         ))}
       </div>
-      <p className="text-xs font-mono text-[#555] mt-2">Dies sind deine Arbeitsgewichtsschätzungen — Trainingsgewichte werden auf ~75% dieser Werte gesetzt.</p>
+      <p className="text-xs font-mono text-[#4040a0] mt-2">Dies sind deine Arbeitsgewichtsschätzungen — Trainingsgewichte werden auf ~75% dieser Werte gesetzt.</p>
     </StepWrapper>
   );
 }

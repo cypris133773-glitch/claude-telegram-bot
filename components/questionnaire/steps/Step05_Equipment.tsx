@@ -25,7 +25,7 @@ export function Step05_Equipment() {
             onClick={() => toggle(e.value)} />
         ))}
       </div>
-      <p className="text-xs font-mono text-[#555]">
+      <p className="text-xs font-mono text-[#4040a0]">
         {inputs.equipment.length} ausgewählt
       </p>
     </StepWrapper>
