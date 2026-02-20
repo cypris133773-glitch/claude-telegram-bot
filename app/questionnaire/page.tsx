@@ -38,6 +38,7 @@ export default function QuestionnairePage() {
       const plan = buildPlan(inputs);
       setPlan(plan);
       addPlan(plan);
+      reset();
       router.push('/plan');
     }
   }, [mounted, step, inputs, setPlan, addPlan, reset, router]);
