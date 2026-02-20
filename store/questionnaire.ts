@@ -52,6 +52,6 @@ export const useQuestionnaireStore = create<QuestionnaireState>()(
       setPlan: (plan) => set({ plan }),
       reset: () => set({ step: 1, inputs: DEFAULT_INPUTS, plan: null }),
     }),
-    { name: 'dnpt-questionnaire' }
+    { name: 'dnpt-questionnaire', version: 2 }
   )
 );

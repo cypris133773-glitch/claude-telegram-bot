@@ -30,12 +30,13 @@ export function StepWrapper({
       <div className="px-4 pt-6 pb-4 border-b border-[#1e1b4b] bg-[#0a0a18]">
         <div className="max-w-2xl mx-auto">
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-8 h-8 rounded-xl overflow-hidden shadow-[0_0_12px_rgba(99,102,241,0.4)]">
+            <div className="w-8 h-8 rounded-xl overflow-hidden shadow-[0_0_12px_rgba(59,130,246,0.5)]">
               <Image src="/logo.svg" alt="Logo" width={32} height={32} />
             </div>
-            <p className="text-xs font-mono text-transparent bg-clip-text bg-gradient-to-r from-[#818cf8] to-[#c084fc] tracking-widest font-bold">
-              FITGEN PRO
-            </p>
+            <div>
+              <p className="text-sm font-mono font-bold text-white leading-tight">David N</p>
+              <p className="text-[10px] font-mono text-[#60a5fa] tracking-wider">Trainingsplan Generator</p>
+            </div>
           </div>
           {!hideProgress && <ProgressBar current={step} total={TOTAL_STEPS} />}
         </div>
