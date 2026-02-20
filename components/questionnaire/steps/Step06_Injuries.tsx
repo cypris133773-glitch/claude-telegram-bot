@@ -15,7 +15,7 @@ export function Step06_Injuries() {
   }
 
   return (
-    <StepWrapper step={step} title="Injuries or pain areas." subtitle="We'll exclude exercises that could aggravate these. Select none if you're healthy."
+    <StepWrapper step={step} title="Verletzungen oder Schmerzgebiete." subtitle="Wir schließen Übungen aus, die diese verschlimmern könnten. Wähle keine, wenn du gesund bist."
       onNext={nextStep} onBack={prevStep}>
       <div className="flex flex-wrap gap-3">
         {INJURY_OPTIONS.map((inj) => (

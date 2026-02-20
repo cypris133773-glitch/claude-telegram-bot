@@ -45,7 +45,7 @@ export const useQuestionnaireStore = create<QuestionnaireState>()(
       inputs: DEFAULT_INPUTS,
       plan: null,
       setStep: (step) => set({ step }),
-      nextStep: () => set((s) => ({ step: Math.min(16, s.step + 1) })),
+      nextStep: () => set((s) => ({ step: Math.min(6, s.step + 1) })),
       prevStep: () => set((s) => ({ step: Math.max(1, s.step - 1) })),
       updateInputs: (partial) =>
         set((s) => ({ inputs: { ...s.inputs, ...partial } })),

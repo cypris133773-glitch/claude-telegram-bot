@@ -1,8 +1,8 @@
-export type Goal = 'strength' | 'hypertrophy' | 'definition' | 'recomp';
+export type Goal = 'strength' | 'hypertrophy' | 'definition' | 'recomp' | 'health';
 export type ExperienceLevel = 'beginner' | 'intermediate' | 'advanced';
 export type Gender = 'male' | 'female';
 export type ActivityLevel = 'sedentary' | 'moderate' | 'active';
-export type Equipment = 'barbell' | 'dumbbell' | 'cable' | 'machine' | 'bodyweight' | 'bands' | 'kettlebell';
+export type Equipment = 'barbell' | 'dumbbell' | 'cable' | 'machine' | 'bodyweight' | 'bands' | 'kettlebell' | 'pull-up-bar' | 'dip-station';
 export type Difficulty = 'beginner' | 'intermediate' | 'advanced';
 export type MuscleGroup =
   | 'chest' | 'back' | 'shoulders' | 'legs' | 'arms' | 'core'
@@ -36,6 +36,8 @@ export interface Exercise {
   formCues: string[];
   commonMistakes: string[];
   alternatives: string[];
+  pros?: string[];
+  cons?: string[];
   videoPlaceholder?: string;
 }
 

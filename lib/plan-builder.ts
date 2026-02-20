@@ -48,7 +48,9 @@ function pickExercises(
 }
 
 function getScheme(ex: Exercise, goal: Goal, experienceLevel: string): SetsRepsScheme {
-  const base = ex.recommendedSetsReps[goal];
+  // 'health' goal uses definition scheme (moderate volume, higher reps)
+  const effectiveGoal: Exclude<Goal, 'health'> = goal === 'health' ? 'definition' : goal;
+  const base = ex.recommendedSetsReps[effectiveGoal];
   const setMod = experienceLevel === 'beginner' ? -1 : experienceLevel === 'advanced' ? 1 : 0;
   return {
     ...base,
@@ -105,52 +107,52 @@ function makeDay(
 function build2Day(inputs: QuestionnaireInputs): WeeklyPlan {
   const exPerDay = Math.min(8, Math.max(5, Math.floor(inputs.sessionDuration / 10)));
   const allMuscles = ['chest', 'back', 'shoulders', 'legs', 'arms', 'core', 'calves'];
-  const dayA = makeDay('Full Body A', 'Strength Focus', allMuscles, inputs, exPerDay, ['barbell-squat','barbell-bench-press','barbell-row','overhead-press']);
-  const dayB = makeDay('Full Body B', 'Hypertrophy Focus', allMuscles, inputs, exPerDay, ['deadlift','dumbbell-bench-press','pull-up','dumbbell-shoulder-press']);
-  return { days: [dayA, dayB], splitType: 'Full Body A/B' };
+  const dayA = makeDay('Ganzkörper A', 'Kraftfokus', allMuscles, inputs, exPerDay, ['barbell-squat','barbell-bench-press','barbell-row','overhead-press']);
+  const dayB = makeDay('Ganzkörper B', 'Hypertrophiefokus', allMuscles, inputs, exPerDay, ['deadlift','dumbbell-bench-press','pull-up','dumbbell-shoulder-press']);
+  return { days: [dayA, dayB], splitType: 'Ganzkörper A/B' };
 }
 
 function build3Day(inputs: QuestionnaireInputs): WeeklyPlan {
   const exPerDay = Math.min(7, Math.max(5, Math.floor(inputs.sessionDuration / 10)));
-  const push = makeDay('Push', 'Chest · Shoulders · Triceps', ['chest','shoulders','triceps'], inputs, exPerDay, ['barbell-bench-press','overhead-press','close-grip-bench']);
-  const pull = makeDay('Pull', 'Back · Biceps · Rear Delts',  ['back','lats','biceps','traps'], inputs, exPerDay, ['barbell-row','pull-up','barbell-curl']);
-  const legs = makeDay('Legs', 'Quads · Hamstrings · Glutes · Calves', ['quads','hamstrings','glutes','calves','core'], inputs, exPerDay, ['barbell-squat','romanian-deadlift','hip-thrust','calf-raise']);
-  return { days: [push, pull, legs], splitType: 'Push / Pull / Legs' };
+  const push = makeDay('Drücken', 'Brust · Schultern · Trizeps', ['chest','shoulders','triceps'], inputs, exPerDay, ['barbell-bench-press','overhead-press','close-grip-bench']);
+  const pull = makeDay('Ziehen',  'Rücken · Bizeps · Hintere Schulter', ['back','lats','biceps','traps'], inputs, exPerDay, ['barbell-row','pull-up','barbell-curl']);
+  const legs = makeDay('Beine',   'Quadrizeps · Oberschenkelrückseite · Gesäß · Waden', ['quads','hamstrings','glutes','calves','core'], inputs, exPerDay, ['barbell-squat','romanian-deadlift','hip-thrust','calf-raise']);
+  return { days: [push, pull, legs], splitType: 'Drücken / Ziehen / Beine' };
 }
 
 function build4Day(inputs: QuestionnaireInputs): WeeklyPlan {
   const exPerDay = Math.min(7, Math.max(5, Math.floor(inputs.sessionDuration / 10)));
-  const upperA = makeDay('Upper A', 'Strength — Chest · Back · Shoulders', ['chest','back','shoulders','triceps','biceps'], inputs, exPerDay, ['barbell-bench-press','barbell-row','overhead-press']);
-  const lowerA = makeDay('Lower A', 'Strength — Squats & Deadlifts', ['quads','hamstrings','glutes','calves','core'], inputs, exPerDay, ['barbell-squat','deadlift','romanian-deadlift']);
-  const upperB = makeDay('Upper B', 'Hypertrophy — Chest · Back · Arms', ['chest','back','biceps','triceps','shoulders'], inputs, exPerDay, ['dumbbell-bench-press','lat-pulldown','dumbbell-curl','tricep-pushdown']);
-  const lowerB = makeDay('Lower B', 'Hypertrophy — Legs & Core', ['quads','hamstrings','glutes','calves','core'], inputs, exPerDay, ['leg-press','leg-curl','hip-thrust','seated-calf-raise']);
-  return { days: [upperA, lowerA, upperB, lowerB], splitType: 'Upper / Lower' };
+  const upperA = makeDay('Oberkörper A', 'Kraft — Brust · Rücken · Schultern', ['chest','back','shoulders','triceps','biceps'], inputs, exPerDay, ['barbell-bench-press','barbell-row','overhead-press']);
+  const lowerA = makeDay('Unterkörper A', 'Kraft — Kniebeugen & Kreuzheben', ['quads','hamstrings','glutes','calves','core'], inputs, exPerDay, ['barbell-squat','deadlift','romanian-deadlift']);
+  const upperB = makeDay('Oberkörper B', 'Hypertrophie — Brust · Rücken · Arme', ['chest','back','biceps','triceps','shoulders'], inputs, exPerDay, ['dumbbell-bench-press','lat-pulldown','dumbbell-curl','tricep-pushdown']);
+  const lowerB = makeDay('Unterkörper B', 'Hypertrophie — Beine & Rumpf', ['quads','hamstrings','glutes','calves','core'], inputs, exPerDay, ['leg-press','leg-curl','hip-thrust','seated-calf-raise']);
+  return { days: [upperA, lowerA, upperB, lowerB], splitType: 'Oberkörper / Unterkörper' };
 }
 
 function build5Day(inputs: QuestionnaireInputs): WeeklyPlan {
   const exPerDay = Math.min(7, Math.max(5, Math.floor(inputs.sessionDuration / 10)));
-  const push = makeDay('Push',   'Chest · Shoulders · Triceps', ['chest','shoulders','triceps'], inputs, exPerDay, ['barbell-bench-press','overhead-press','close-grip-bench']);
-  const pull = makeDay('Pull',   'Back · Biceps · Rear Delts',  ['back','lats','biceps'], inputs, exPerDay, ['barbell-row','pull-up','barbell-curl']);
-  const legs = makeDay('Legs',   'Quads · Hamstrings · Glutes', ['quads','hamstrings','glutes','calves'], inputs, exPerDay, ['barbell-squat','romanian-deadlift','hip-thrust']);
+  const push = makeDay('Drücken',  'Brust · Schultern · Trizeps', ['chest','shoulders','triceps'], inputs, exPerDay, ['barbell-bench-press','overhead-press','close-grip-bench']);
+  const pull = makeDay('Ziehen',   'Rücken · Bizeps · Hintere Schulter', ['back','lats','biceps'], inputs, exPerDay, ['barbell-row','pull-up','barbell-curl']);
+  const legs = makeDay('Beine',    'Quadrizeps · Oberschenkelrückseite · Gesäß', ['quads','hamstrings','glutes','calves'], inputs, exPerDay, ['barbell-squat','romanian-deadlift','hip-thrust']);
   const spec = makeDay(
-    'Specialization',
-    inputs.weakPoints.length ? inputs.weakPoints.join(' · ') : 'Arms · Core',
+    'Spezialisierung',
+    inputs.weakPoints.length ? inputs.weakPoints.join(' · ') : 'Arme · Rumpf',
     inputs.weakPoints.length ? inputs.weakPoints : ['arms','core'],
     inputs, exPerDay
   );
-  const cardioCore = makeDay('Core & Conditioning', 'Core · Calves · Cardio', ['core','calves'], inputs, 5);
-  return { days: [push, pull, legs, spec, cardioCore], splitType: 'PPL + Specialization' };
+  const cardioCore = makeDay('Rumpf & Konditionierung', 'Rumpf · Waden · Cardio', ['core','calves'], inputs, 5);
+  return { days: [push, pull, legs, spec, cardioCore], splitType: 'PPL + Spezialisierung' };
 }
 
 function build6Day(inputs: QuestionnaireInputs): WeeklyPlan {
   const exPerDay = Math.min(7, Math.max(5, Math.floor(inputs.sessionDuration / 10)));
-  const pushA = makeDay('Push A', 'Chest · Shoulders · Triceps (Heavy)', ['chest','shoulders','triceps'], inputs, exPerDay, ['barbell-bench-press','overhead-press','close-grip-bench']);
-  const pullA = makeDay('Pull A', 'Back · Biceps (Heavy)',                 ['back','lats','biceps'], inputs, exPerDay, ['deadlift','barbell-row','barbell-curl']);
-  const legsA = makeDay('Legs A', 'Quads Dominant',                        ['quads','calves','core'], inputs, exPerDay, ['barbell-squat','leg-press','calf-raise']);
-  const pushB = makeDay('Push B', 'Chest · Shoulders · Triceps (Volume)', ['chest','shoulders','triceps'], inputs, exPerDay, ['dumbbell-bench-press','dumbbell-shoulder-press','tricep-pushdown']);
-  const pullB = makeDay('Pull B', 'Back · Posterior Chain (Volume)',        ['back','lats','biceps','traps'], inputs, exPerDay, ['pull-up','cable-row','hammer-curl','rear-delt-fly']);
-  const legsB = makeDay('Legs B', 'Posterior Chain Dominant',              ['hamstrings','glutes','calves'], inputs, exPerDay, ['romanian-deadlift','hip-thrust','leg-curl','seated-calf-raise']);
-  return { days: [pushA, pullA, legsA, pushB, pullB, legsB], splitType: '6-Day PPL' };
+  const pushA = makeDay('Drücken A', 'Brust · Schultern · Trizeps (Schwer)', ['chest','shoulders','triceps'], inputs, exPerDay, ['barbell-bench-press','overhead-press','close-grip-bench']);
+  const pullA = makeDay('Ziehen A',  'Rücken · Bizeps (Schwer)',              ['back','lats','biceps'], inputs, exPerDay, ['deadlift','barbell-row','barbell-curl']);
+  const legsA = makeDay('Beine A',   'Quadrizeps-Fokus',                      ['quads','calves','core'], inputs, exPerDay, ['barbell-squat','leg-press','calf-raise']);
+  const pushB = makeDay('Drücken B', 'Brust · Schultern · Trizeps (Volumen)', ['chest','shoulders','triceps'], inputs, exPerDay, ['dumbbell-bench-press','dumbbell-shoulder-press','tricep-pushdown']);
+  const pullB = makeDay('Ziehen B',  'Rücken · Hintere Kette (Volumen)',       ['back','lats','biceps','traps'], inputs, exPerDay, ['pull-up','cable-row','hammer-curl','rear-delt-fly']);
+  const legsB = makeDay('Beine B',   'Hintere Kette-Fokus',                   ['hamstrings','glutes','calves'], inputs, exPerDay, ['romanian-deadlift','hip-thrust','leg-curl','seated-calf-raise']);
+  return { days: [pushA, pullA, legsA, pushB, pullB, legsB], splitType: '6-Tage PPL' };
 }
 
 // ─── Deload ───────────────────────────────────────────────────────────────────
@@ -165,7 +167,7 @@ export function buildDeloadWeek(plan: WeeklyPlan): WeeklyPlan {
         ...ex,
         sets: Math.max(2, ex.sets - 1),
         targetWeight: ex.targetWeight ? Math.round(ex.targetWeight * 0.6 * 2) / 2 : undefined,
-        notes: 'Deload: 60% of working weight. Focus on technique.',
+        notes: 'Deload: 60% des Arbeitsgewichts. Fokus auf Technik.',
       })),
     })),
   };
@@ -179,19 +181,40 @@ function buildProgressionGuide(inputs: QuestionnaireInputs): ProgressionGuide {
   return {
     weeklyIncrease,
     deloadFrequency: inputs.experienceLevel === 'advanced' ? 4 : 6,
-    deloadProtocol: 'Reduce load by 40%, maintain reps and sets. Focus on technique. One week duration.',
-    progressionMethod: isStrength ? 'Linear periodisation — add weight each session when all sets are completed' : 'Double progression — increase reps first, then weight when top of rep range is hit',
+    deloadProtocol: 'Gewicht um 40% reduzieren, Wiederholungen und Sätze beibehalten. Technikfokus. Dauer: eine Woche.',
+    progressionMethod: isStrength ? 'Lineare Periodisierung — Gewicht erhöhen, wenn alle Sätze erfolgreich abgeschlossen wurden' : 'Doppelte Progression — erst Wiederholungen steigern, dann Gewicht erhöhen wenn das obere Ende des Wiederholungsbereichs erreicht ist',
     milestones: [
-      `Week 4: Aim for ${Math.round(inputs.currentLifts.benchPress ?? 60 * 1.05)}kg bench press`,
-      `Week 8: Deload week — assess progress and recalibrate`,
-      `Week 12: Retest 1RM lifts and update your plan`,
+      `Woche 4: Anstreben von ${Math.round(inputs.currentLifts.benchPress ?? 60 * 1.05)}kg Bankdrücken`,
+      `Woche 8: Deload-Woche — Fortschritt evaluieren und neu kalibrieren`,
+      `Woche 12: 1RM-Maximalgewichte nachtesten und Plan aktualisieren`,
     ],
   };
 }
 
 // ─── Main builder ─────────────────────────────────────────────────────────────
 
-export function buildPlan(inputs: QuestionnaireInputs): GeneratedPlan {
+export function buildPlan(rawInputs: QuestionnaireInputs): GeneratedPlan {
+  // Apply safe defaults for fields that may be missing after the 5-step questionnaire
+  const safeDefaults: Partial<QuestionnaireInputs> = {
+    sessionDuration: 60,
+    activityLevel: 'moderate',
+    sleepHours: 7,
+    stressLevel: 3,
+    dietaryRestrictions: [],
+    mealsPerDay: 4,
+    weakPoints: [],
+    includeCardio: false,
+    cardioPreference: 'none',
+    hasGym: true,
+    trainingYears: 1,
+  };
+  const inputs: QuestionnaireInputs = {
+    ...safeDefaults,
+    ...rawInputs,
+    injuries: rawInputs.injuries ?? [],
+    currentLifts: rawInputs.currentLifts ?? {},
+    equipment: rawInputs.equipment?.length ? rawInputs.equipment : ['bodyweight'],
+  };
   let weeklyPlan: WeeklyPlan;
   switch (inputs.trainingDays) {
     case 2:  weeklyPlan = build2Day(inputs); break;
@@ -207,8 +230,8 @@ export function buildPlan(inputs: QuestionnaireInputs): GeneratedPlan {
     weeklyPlan.days.forEach((day, i) => {
       if (i < inputs.trainingDays) {
         const cardioNote = inputs.cardioPreference === 'hiit'
-          ? 'Post-workout: 15 min HIIT (20s sprint / 40s rest × 15 rounds)'
-          : 'Post-workout: 20–30 min LISS cardio (65–70% max HR)';
+          ? 'Nach dem Training: 15 Min. HIIT (20 Sek. Sprint / 40 Sek. Pause × 15 Runden)'
+          : 'Nach dem Training: 20–30 Min. LISS Cardio (65–70% max. Herzfrequenz)';
         day.exercises.push({
           exerciseId: 'cardio',
           exercise: {
@@ -231,7 +254,7 @@ export function buildPlan(inputs: QuestionnaireInputs): GeneratedPlan {
             alternatives: [],
           },
           sets: 1,
-          reps: inputs.cardioPreference === 'hiit' ? '15 rounds' : '20-30 min',
+          reps: inputs.cardioPreference === 'hiit' ? '15 Runden' : '20-30 Min.',
           rest: '-',
           notes: cardioNote,
         });
@@ -241,7 +264,7 @@ export function buildPlan(inputs: QuestionnaireInputs): GeneratedPlan {
 
   const id = `plan-${inputs.age}-${inputs.weight}-${inputs.trainingDays}-${inputs.goal}`;
   const goalLabels: Record<string, string> = {
-    strength: 'Strength', hypertrophy: 'Hypertrophy', definition: 'Definition', recomp: 'Recomp'
+    strength: 'Kraft', hypertrophy: 'Muskelaufbau', definition: 'Definition', recomp: 'Recomp', health: 'Gesundheit'
   };
 
   return {
