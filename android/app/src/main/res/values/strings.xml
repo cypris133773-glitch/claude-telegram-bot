@@ -1,7 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<resources>
-    <string name="app_name">DNA Fitness</string>
-    <string name="title_activity_main">DNA Fitness</string>
-    <string name="package_name">com.dnafitness.app</string>
-    <string name="custom_url_scheme">com.dnafitness.app</string>
-</resources>
