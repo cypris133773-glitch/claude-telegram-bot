@@ -20,8 +20,12 @@ export default function PlanPage() {
   const [tab, setTab] = useState<Tab>('plan');
   const [showPlanList, setShowPlanList] = useState(false);
   const [deleteConfirm, setDeleteConfirm] = useState<string | null>(null);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => { setMounted(true); }, []);
 
   useEffect(() => {
+    if (!mounted) return;
     if (plans.length === 0) {
       router.push('/questionnaire');
       return;
@@ -31,7 +35,7 @@ export default function PlanPage() {
       setPlan(active);
       if (active.id !== activePlanId) setActivePlan(active.id);
     }
-  }, [plans, activePlanId, setActivePlan, router]);
+  }, [mounted, plans, activePlanId, setActivePlan, router]);
 
   if (!plan) {
     return (
