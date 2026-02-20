@@ -1,191 +1,191 @@
 import type { Equipment, MuscleGroup } from '@/types';
 
 export const APP_NAME = 'DAVID N. PERSONAL TRAINING APP';
-export const APP_TAGLINE = 'Maximum Strength. Peak Definition. Natural.';
+export const APP_TAGLINE = 'Maximale Kraft. Optimale Definition. Natürlich.';
 export const APP_DESCRIPTION =
-  'A highly personalized fitness plan generator for natural athletes focused on maximum strength and definition.';
+  'Ein hochpersonalisierter Fitnessplan-Generator für natürliche Athleten mit Fokus auf maximale Kraft und Definition.';
 
 export const INJURIES = [
-  { id: 'lower-back', label: 'Lower Back' },
-  { id: 'shoulder', label: 'Shoulder' },
-  { id: 'knee', label: 'Knee' },
-  { id: 'elbow', label: 'Elbow' },
-  { id: 'wrist', label: 'Wrist' },
-  { id: 'hip', label: 'Hip' },
-  { id: 'ankle', label: 'Ankle' },
-  { id: 'neck', label: 'Neck' },
-  { id: 'rotator-cuff', label: 'Rotator Cuff' },
-  { id: 'hamstring', label: 'Hamstring' },
+  { id: 'lower-back', label: 'Unterer Rücken' },
+  { id: 'shoulder', label: 'Schulter' },
+  { id: 'knee', label: 'Knie' },
+  { id: 'elbow', label: 'Ellbogen' },
+  { id: 'wrist', label: 'Handgelenk' },
+  { id: 'hip', label: 'Hüfte' },
+  { id: 'ankle', label: 'Knöchel' },
+  { id: 'neck', label: 'Nacken' },
+  { id: 'rotator-cuff', label: 'Rotatorenmanschette' },
+  { id: 'hamstring', label: 'Oberschenkelrückseite' },
 ];
 
 export const EQUIPMENT_OPTIONS: { value: Equipment; label: string }[] = [
-  { value: 'barbell',    label: 'Barbell' },
-  { value: 'dumbbell',   label: 'Dumbbells' },
-  { value: 'cable',      label: 'Cable Machine' },
-  { value: 'machine',    label: 'Machines' },
-  { value: 'bodyweight', label: 'Bodyweight' },
-  { value: 'bands',      label: 'Resistance Bands' },
+  { value: 'barbell',    label: 'Langhantel' },
+  { value: 'dumbbell',   label: 'Kurzhanteln' },
+  { value: 'cable',      label: 'Kabelzug' },
+  { value: 'machine',    label: 'Maschinen' },
+  { value: 'bodyweight', label: 'Körpergewicht' },
+  { value: 'bands',      label: 'Widerstandsbänder' },
   { value: 'kettlebell', label: 'Kettlebell' },
 ];
 
 export const WEAK_POINTS: { id: MuscleGroup; label: string }[] = [
-  { id: 'chest', label: 'Chest' },
-  { id: 'back', label: 'Back' },
-  { id: 'shoulders', label: 'Shoulders' },
-  { id: 'legs', label: 'Legs' },
-  { id: 'arms', label: 'Arms' },
-  { id: 'core', label: 'Core' },
-  { id: 'calves', label: 'Calves' },
-  { id: 'glutes', label: 'Glutes' },
-  { id: 'hamstrings', label: 'Hamstrings' },
+  { id: 'chest', label: 'Brust' },
+  { id: 'back', label: 'Rücken' },
+  { id: 'shoulders', label: 'Schultern' },
+  { id: 'legs', label: 'Beine' },
+  { id: 'arms', label: 'Arme' },
+  { id: 'core', label: 'Rumpf' },
+  { id: 'calves', label: 'Waden' },
+  { id: 'glutes', label: 'Gesäß' },
+  { id: 'hamstrings', label: 'Oberschenkelrückseite' },
 ];
 
 // DIETARY_RESTRICTIONS with value/label defined below
 
 export const SPLIT_NAMES: Record<number, string> = {
-  2: 'Full Body A/B',
-  3: 'Push / Pull / Legs',
-  4: 'Upper / Lower',
-  5: 'PPL + Specialization',
-  6: '6-Day PPL',
+  2: 'Ganzkörper A/B',
+  3: 'Drücken / Ziehen / Beine',
+  4: 'Oberkörper / Unterkörper',
+  5: 'PPL + Spezialisierung',
+  6: '6-Tage PPL',
 };
 
 export const GOAL_LABELS: Record<string, string> = {
-  strength: 'Maximum Strength',
-  hypertrophy: 'Muscle Mass',
-  definition: 'Lean Definition',
+  strength: 'Maximale Kraft',
+  hypertrophy: 'Muskelaufbau',
+  definition: 'Definition & Schnitt',
   recomp: 'Body Recomposition',
 };
 
 export const GOAL_DESCRIPTIONS: Record<string, string> = {
-  strength: 'Build maximal strength with compound lifts and progressive overload.',
-  hypertrophy: 'Maximize muscle size through optimal volume and tension.',
-  definition: 'Reveal muscular definition with higher rep work and conditioning.',
-  recomp: 'Simultaneously build muscle and lose fat — ideal for intermediate athletes.',
+  strength: 'Maximale Kraft mit Grundübungen und progressiver Überlastung aufbauen.',
+  hypertrophy: 'Muskelgröße durch optimales Volumen und Muskelspannung maximieren.',
+  definition: 'Muskeldefinition durch höhere Wiederholungszahlen und Konditionierung herausarbeiten.',
+  recomp: 'Gleichzeitig Muskeln aufbauen und Fett verlieren — ideal für Fortgeschrittene.',
 };
 
 export const EXPERIENCE_DESCRIPTIONS: Record<string, string> = {
-  beginner: '< 1 year of consistent training',
-  intermediate: '1–3 years of consistent training',
-  advanced: '3+ years of consistent training',
+  beginner: '< 1 Jahr konsequentes Training',
+  intermediate: '1–3 Jahre konsequentes Training',
+  advanced: '3+ Jahre konsequentes Training',
 };
 
 export const PROGRESSION_MESSAGES = {
-  hit: 'Great work! Add 2.5kg to upper body lifts and 5kg to lower body lifts next session.',
-  miss: 'No worries — maintain the same weight and focus on perfect form.',
-  deload: 'Time for a deload! Reduce all weights by 40%, maintain reps, and focus on recovery.',
+  hit: 'Gut gemacht! Erhöhe das Gewicht beim nächsten Training um 2,5 kg (Oberkörper) bzw. 5 kg (Unterkörper).',
+  miss: 'Kein Problem — behalte das gleiche Gewicht und fokussiere dich auf saubere Technik.',
+  deload: 'Zeit für einen Deload! Reduziere alle Gewichte um 40 %, behalte die Wiederholungen und erhol dich.',
 };
 
 export const SUPPLEMENT_RECOMMENDATIONS: Record<string, string[]> = {
   beginner: [
-    'Creatine Monohydrate 5g/day',
-    'Whey Protein (if needed to hit protein target)',
-    'Vitamin D3 2000IU',
+    'Kreatin Monohydrat 5g/Tag',
+    'Whey Protein (falls nötig, um Proteinziel zu erreichen)',
+    'Vitamin D3 2000 IE',
   ],
   intermediate: [
-    'Creatine Monohydrate 5g/day',
+    'Kreatin Monohydrat 5g/Tag',
     'Whey Protein',
     'Vitamin D3 + K2',
-    'Magnesium Glycinate 400mg',
+    'Magnesiumglycinat 400 mg',
   ],
   advanced: [
-    'Creatine Monohydrate 5g/day',
+    'Kreatin Monohydrat 5g/Tag',
     'Whey Protein',
     'Vitamin D3 + K2',
-    'Magnesium Glycinate 400mg',
-    'Zinc 15mg',
-    'Omega-3 Fish Oil 2g',
+    'Magnesiumglycinat 400 mg',
+    'Zink 15 mg',
+    'Omega-3 Fischöl 2 g',
   ],
 };
 
 // ─── Aliases with .value prop for step components ─────────────────────────
 export const EXPERIENCE_LEVELS = [
-  { value: 'beginner',     label: 'Beginner',     description: '< 1 year of consistent training' },
-  { value: 'intermediate', label: 'Intermediate',  description: '1–3 years of consistent training' },
-  { value: 'advanced',     label: 'Advanced',      description: '3+ years of consistent training' },
+  { value: 'beginner',     label: 'Anfänger',       description: '< 1 Jahr konsequentes Training' },
+  { value: 'intermediate', label: 'Fortgeschritten', description: '1–3 Jahre konsequentes Training' },
+  { value: 'advanced',     label: 'Experte',         description: '3+ Jahre konsequentes Training' },
 ];
 
 export const GOALS = [
-  { value: 'strength',    label: 'Maximum Strength',      icon: '💪', description: 'Build maximal strength with compound lifts and progressive overload.' },
-  { value: 'hypertrophy', label: 'Muscle Mass',           icon: '🏋️', description: 'Maximize muscle size through optimal volume and tension.' },
-  { value: 'definition',  label: 'Lean Definition',       icon: '🔥', description: 'Reveal muscular definition with higher rep work and conditioning.' },
-  { value: 'recomp',      label: 'Body Recomposition',    icon: '⚖️', description: 'Simultaneously build muscle and lose fat — ideal for intermediate athletes.' },
+  { value: 'strength',    label: 'Maximale Kraft',      icon: '💪', description: 'Maximale Kraft mit Grundübungen und progressiver Überlastung aufbauen.' },
+  { value: 'hypertrophy', label: 'Muskelaufbau',        icon: '🏋️', description: 'Muskelgröße durch optimales Volumen und Muskelspannung maximieren.' },
+  { value: 'definition',  label: 'Definition & Schnitt', icon: '🔥', description: 'Muskeldefinition durch höhere Wiederholungszahlen und Konditionierung herausarbeiten.' },
+  { value: 'recomp',      label: 'Body Recomposition',  icon: '⚖️', description: 'Gleichzeitig Muskeln aufbauen und Fett verlieren — ideal für Fortgeschrittene.' },
 ];
 
 export const SPLIT_LABELS: Record<number, string> = {
-  2: 'Full Body A/B',
-  3: 'Push / Pull / Legs',
-  4: 'Upper / Lower',
-  5: 'PPL + Specialization',
-  6: '6-Day PPL',
+  2: 'Ganzkörper A/B',
+  3: 'Drücken / Ziehen / Beine',
+  4: 'Oberkörper / Unterkörper',
+  5: 'PPL + Spezialisierung',
+  6: '6-Tage PPL',
 };
 
 export const INJURY_OPTIONS = [
-  { value: 'lower-back',   label: 'Lower Back' },
-  { value: 'shoulder',     label: 'Shoulder' },
-  { value: 'knee',         label: 'Knee' },
-  { value: 'elbow',        label: 'Elbow' },
-  { value: 'wrist',        label: 'Wrist' },
-  { value: 'hip',          label: 'Hip' },
-  { value: 'ankle',        label: 'Ankle' },
-  { value: 'neck',         label: 'Neck' },
-  { value: 'rotator-cuff', label: 'Rotator Cuff' },
-  { value: 'hamstring',    label: 'Hamstring' },
+  { value: 'lower-back',   label: 'Unterer Rücken' },
+  { value: 'shoulder',     label: 'Schulter' },
+  { value: 'knee',         label: 'Knie' },
+  { value: 'elbow',        label: 'Ellbogen' },
+  { value: 'wrist',        label: 'Handgelenk' },
+  { value: 'hip',          label: 'Hüfte' },
+  { value: 'ankle',        label: 'Knöchel' },
+  { value: 'neck',         label: 'Nacken' },
+  { value: 'rotator-cuff', label: 'Rotatorenmanschette' },
+  { value: 'hamstring',    label: 'Oberschenkelrückseite' },
 ];
 
 export const ACTIVITY_LEVELS = [
-  { value: 'sedentary', label: 'Sedentary',  description: 'Desk job, minimal daily movement outside the gym.' },
-  { value: 'moderate',  label: 'Moderate',   description: 'Some walking, light manual work, or an active lifestyle.' },
-  { value: 'active',    label: 'Very Active', description: 'Physical job, sports, or significant daily movement.' },
+  { value: 'sedentary', label: 'Sitzend',     description: 'Bürojob, minimale Bewegung außerhalb des Gyms.' },
+  { value: 'moderate',  label: 'Moderat',     description: 'Etwas Gehen, leichte körperliche Arbeit oder aktiver Lebensstil.' },
+  { value: 'active',    label: 'Sehr aktiv',  description: 'Körperlich anspruchsvoller Job, Sport oder viel Bewegung täglich.' },
 ];
 
 export const MUSCLE_GROUPS = [
-  { value: 'chest',      label: 'Chest' },
-  { value: 'back',       label: 'Back' },
-  { value: 'shoulders',  label: 'Shoulders' },
-  { value: 'quads',      label: 'Quads' },
-  { value: 'hamstrings', label: 'Hamstrings' },
-  { value: 'glutes',     label: 'Glutes' },
-  { value: 'calves',     label: 'Calves' },
-  { value: 'biceps',     label: 'Biceps' },
-  { value: 'triceps',    label: 'Triceps' },
-  { value: 'core',       label: 'Core' },
-  { value: 'traps',      label: 'Traps' },
+  { value: 'chest',      label: 'Brust' },
+  { value: 'back',       label: 'Rücken' },
+  { value: 'shoulders',  label: 'Schultern' },
+  { value: 'quads',      label: 'Quadrizeps' },
+  { value: 'hamstrings', label: 'Oberschenkelrückseite' },
+  { value: 'glutes',     label: 'Gesäß' },
+  { value: 'calves',     label: 'Waden' },
+  { value: 'biceps',     label: 'Bizeps' },
+  { value: 'triceps',    label: 'Trizeps' },
+  { value: 'core',       label: 'Rumpf' },
+  { value: 'traps',      label: 'Trapezmuskel' },
 ];
 
 export const CARDIO_OPTIONS = [
-  { value: 'hiit', label: 'HIIT',       description: 'High-intensity intervals — 15-20 min. Maximises fat burn, preserves muscle.' },
-  { value: 'liss', label: 'LISS',       description: 'Low-intensity steady state — 20-30 min. Low recovery cost, good for cutting.' },
+  { value: 'hiit', label: 'HIIT', description: 'Hochintensives Intervalltraining — 15–20 Min. Maximiert Fettverbrennung, erhält Muskeln.' },
+  { value: 'liss', label: 'LISS', description: 'Niedrigintensives Ausdauertraining — 20–30 Min. Geringer Erholungsaufwand, gut für den Schnitt.' },
 ];
 
 // Overwrite DIETARY_RESTRICTIONS with object form
 export const DIETARY_RESTRICTIONS = [
-  { value: 'none',              label: 'None' },
-  { value: 'vegetarian',        label: 'Vegetarian' },
+  { value: 'none',              label: 'Keine' },
+  { value: 'vegetarian',        label: 'Vegetarisch' },
   { value: 'vegan',             label: 'Vegan' },
-  { value: 'gluten-free',       label: 'Gluten-Free' },
-  { value: 'lactose-free',      label: 'Lactose-Free' },
+  { value: 'gluten-free',       label: 'Glutenfrei' },
+  { value: 'lactose-free',      label: 'Laktosefrei' },
   { value: 'halal',             label: 'Halal' },
-  { value: 'kosher',            label: 'Kosher' },
+  { value: 'kosher',            label: 'Koscher' },
 ];
 
 // EQUIPMENT_OPTIONS with .value for step components (replaces id-based version above)
 // Re-export with value alias
 export const QUESTIONNAIRE_STEPS = [
-  { id: 1,  title: 'Welcome',           description: "Let's build your perfect training plan." },
-  { id: 2,  title: 'Your Age',          description: 'Age helps us calibrate recovery and progression.' },
-  { id: 3,  title: 'Gender',            description: 'Used for accurate BMR and adjustments.' },
-  { id: 4,  title: 'Body Stats',        description: 'Height and weight for nutrition calculations.' },
-  { id: 5,  title: 'Experience Level',  description: 'How long have you been training consistently?' },
-  { id: 6,  title: 'Primary Goal',      description: 'What are you training for?' },
-  { id: 7,  title: 'Training Days',     description: 'How many days per week can you train?' },
-  { id: 8,  title: 'Session Duration',  description: 'How long is each training session?' },
-  { id: 9,  title: 'Equipment',         description: 'What equipment do you have access to?' },
-  { id: 10, title: 'Injuries',          description: 'Any injuries we should work around?' },
-  { id: 11, title: 'Current Strength',  description: 'Your approximate 1-rep max lifts.' },
-  { id: 12, title: 'Activity Level',    description: 'How active are you outside the gym?' },
-  { id: 13, title: 'Sleep & Recovery',  description: 'Recovery quality impacts your results.' },
-  { id: 14, title: 'Nutrition',         description: 'Dietary preferences and meal frequency.' },
-  { id: 15, title: 'Weak Points',       description: 'Which areas need the most attention?' },
-  { id: 16, title: 'Cardio',            description: 'Do you want cardio included in your plan?' },
+  { id: 1,  title: 'Willkommen',          description: 'Lass uns deinen perfekten Trainingsplan erstellen.' },
+  { id: 2,  title: 'Dein Alter',          description: 'Das Alter hilft uns, Erholung und Progression zu kalibrieren.' },
+  { id: 3,  title: 'Geschlecht',          description: 'Wird für genaue BMR-Berechnungen und Anpassungen verwendet.' },
+  { id: 4,  title: 'Körperdaten',         description: 'Größe und Gewicht für Ernährungsberechnungen.' },
+  { id: 5,  title: 'Erfahrungsstufe',     description: 'Wie lange trainierst du bereits konsequent?' },
+  { id: 6,  title: 'Hauptziel',           description: 'Wofür trainierst du?' },
+  { id: 7,  title: 'Trainingstage',       description: 'Wie viele Tage pro Woche kannst du trainieren?' },
+  { id: 8,  title: 'Einheitsdauer',       description: 'Wie lange dauert jede Trainingseinheit?' },
+  { id: 9,  title: 'Ausrüstung',          description: 'Welche Ausrüstung steht dir zur Verfügung?' },
+  { id: 10, title: 'Verletzungen',        description: 'Gibt es Verletzungen, die wir berücksichtigen sollen?' },
+  { id: 11, title: 'Aktuelle Leistungen', description: 'Deine ungefähren 1-Wiederholungs-Maximalgewichte.' },
+  { id: 12, title: 'Aktivitätslevel',     description: 'Wie aktiv bist du außerhalb des Gyms?' },
+  { id: 13, title: 'Schlaf & Erholung',   description: 'Erholungsqualität beeinflusst deine Ergebnisse.' },
+  { id: 14, title: 'Ernährung',           description: 'Ernährungspräferenzen und Mahlzeitenhäufigkeit.' },
+  { id: 15, title: 'Schwachpunkte',       description: 'Welche Bereiche brauchen die meiste Aufmerksamkeit?' },
+  { id: 16, title: 'Cardio',             description: 'Soll Cardio in deinen Plan integriert werden?' },
 ] as const;

@@ -16,7 +16,7 @@ export function Step05_Equipment() {
   }
 
   return (
-    <StepWrapper step={step} title="Available equipment." subtitle="Select everything you have regular access to."
+    <StepWrapper step={step} title="Verfügbare Ausrüstung." subtitle="Wähle alles aus, worauf du regelmäßig Zugriff hast."
       onNext={nextStep} onBack={prevStep} nextDisabled={inputs.equipment.length === 0}>
       <div className="flex flex-wrap gap-3">
         {EQUIPMENT_OPTIONS.map((e) => (
@@ -26,7 +26,7 @@ export function Step05_Equipment() {
         ))}
       </div>
       <p className="text-xs font-mono text-[#555]">
-        {inputs.equipment.length} selected
+        {inputs.equipment.length} ausgewählt
       </p>
     </StepWrapper>
   );

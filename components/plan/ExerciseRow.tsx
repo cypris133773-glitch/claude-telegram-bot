@@ -24,7 +24,7 @@ export function ExerciseRow({ ex, index, onSwap }: ExerciseRowProps) {
         <div className="flex-1 min-w-0">
           <div className="font-mono font-bold text-[#e8e8e8] text-sm truncate">{ex.exercise.name}</div>
           <div className="text-xs font-mono text-[#888] mt-0.5">
-            {ex.sets} × {ex.reps} · {ex.rest} rest
+            {ex.sets} × {ex.reps} · {ex.rest} Pause
             {ex.rir !== undefined && ` · ${ex.rir} RIR`}
           </div>
         </div>
@@ -44,7 +44,7 @@ export function ExerciseRow({ ex, index, onSwap }: ExerciseRowProps) {
 
           {ex.exercise.formCues.length > 0 && (
             <div className="space-y-2">
-              <p className="text-xs font-mono text-[#d4ff00] uppercase tracking-wider">Form Cues</p>
+              <p className="text-xs font-mono text-[#d4ff00] uppercase tracking-wider">Ausführungshinweise</p>
               <ul className="space-y-1">
                 {ex.exercise.formCues.map((cue, i) => (
                   <li key={i} className="text-xs font-mono text-[#888] flex gap-2">
@@ -58,7 +58,7 @@ export function ExerciseRow({ ex, index, onSwap }: ExerciseRowProps) {
 
           {ex.exercise.commonMistakes.length > 0 && (
             <div className="space-y-2">
-              <p className="text-xs font-mono text-red-400 uppercase tracking-wider">Common Mistakes</p>
+              <p className="text-xs font-mono text-red-400 uppercase tracking-wider">Häufige Fehler</p>
               <ul className="space-y-1">
                 {ex.exercise.commonMistakes.map((m, i) => (
                   <li key={i} className="text-xs font-mono text-[#888] flex gap-2">
@@ -81,13 +81,13 @@ export function ExerciseRow({ ex, index, onSwap }: ExerciseRowProps) {
               ex.exercise.difficulty === 'intermediate' ? 'text-yellow-400 border-yellow-900 bg-yellow-950/30' :
               'text-red-400 border-red-900 bg-red-950/30'
             }`}>
-              {ex.exercise.difficulty}
+              {ex.exercise.difficulty === 'beginner' ? 'Anfänger' : ex.exercise.difficulty === 'intermediate' ? 'Fortgeschritten' : 'Experte'}
             </span>
           </div>
 
           {onSwap && (
             <Button variant="outline" size="sm" onClick={() => onSwap(ex)}>
-              ⇄ Swap Exercise
+              ⇄ Übung tauschen
             </Button>
           )}
         </div>

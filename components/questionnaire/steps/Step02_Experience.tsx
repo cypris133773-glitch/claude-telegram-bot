@@ -7,10 +7,10 @@ import { EXPERIENCE_LEVELS } from '@/lib/constants';
 export function Step02_Experience() {
   const { step, inputs, updateInputs, nextStep, prevStep } = useQuestionnaireStore();
   return (
-    <StepWrapper step={step} title="Training experience." onNext={nextStep} onBack={prevStep}>
+    <StepWrapper step={step} title="Trainingserfahrung." onNext={nextStep} onBack={prevStep}>
       <div className="space-y-8">
         <div className="space-y-3">
-          <p className="text-xs font-mono text-[#888] uppercase tracking-wider">Experience Level</p>
+          <p className="text-xs font-mono text-[#888] uppercase tracking-wider">Erfahrungsstufe</p>
           <div className="grid grid-cols-3 gap-3">
             {EXPERIENCE_LEVELS.map((lvl) => (
               <button
@@ -30,7 +30,7 @@ export function Step02_Experience() {
         </div>
         <Slider value={inputs.trainingYears} min={0} max={20} step={0.5}
           onChange={(v) => updateInputs({ trainingYears: v })}
-          label="Years Training" unit=" yrs" />
+          label="Jahre Training" unit=" J." />
       </div>
     </StepWrapper>
   );

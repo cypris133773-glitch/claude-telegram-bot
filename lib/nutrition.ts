@@ -45,22 +45,22 @@ function calcMacros(calories: number, inputs: QuestionnaireInputs): MacroTargets
 }
 
 function preworkoutAdvice(inputs: QuestionnaireInputs): string {
-  return `Consume 30–60 min before training: ${Math.round(inputs.weight * 0.3)}g carbs + ${Math.round(inputs.weight * 0.2)}g protein. Example: banana + whey shake or rice + chicken.`;
+  return `30–60 Min. vor dem Training: ${Math.round(inputs.weight * 0.3)}g Kohlenhydrate + ${Math.round(inputs.weight * 0.2)}g Protein. Beispiel: Banane + Whey-Shake oder Reis + Hähnchen.`;
 }
 
 function postworkoutAdvice(inputs: QuestionnaireInputs): string {
-  return `Within 30–60 min post-training: ${Math.round(inputs.weight * 0.4)}g carbs + ${Math.round(inputs.weight * 0.3)}g protein. Example: white rice + whey or Greek yogurt + fruit.`;
+  return `Innerhalb von 30–60 Min. nach dem Training: ${Math.round(inputs.weight * 0.4)}g Kohlenhydrate + ${Math.round(inputs.weight * 0.3)}g Protein. Beispiel: Weißer Reis + Whey oder griechischer Joghurt + Früchte.`;
 }
 
 function mealTimingAdvice(inputs: QuestionnaireInputs): string[] {
   const meals = inputs.mealsPerDay;
   const advice: string[] = [
-    `Split your ${Math.round(inputs.weight * (inputs.experienceLevel === 'advanced' ? 2.2 : 2.0))}g protein target across all ${meals} meals (~${Math.round((inputs.weight * (inputs.experienceLevel === 'advanced' ? 2.2 : 2.0)) / meals)}g per meal).`,
+    `Verteile dein Proteinziel von ${Math.round(inputs.weight * (inputs.experienceLevel === 'advanced' ? 2.2 : 2.0))}g auf ${meals} Mahlzeiten (~${Math.round((inputs.weight * (inputs.experienceLevel === 'advanced' ? 2.2 : 2.0)) / meals)}g pro Mahlzeit).`,
   ];
-  if (meals >= 4) advice.push('Include a pre-sleep protein meal (casein or cottage cheese) for overnight muscle protein synthesis.');
-  advice.push('Do not go more than 4–5 hours without a protein-containing meal during waking hours.');
+  if (meals >= 4) advice.push('Nimm eine proteinreiche Mahlzeit vor dem Schlafen (Kasein oder Hüttenkäse) für nächtliche Muskelsynthese.');
+  advice.push('Gehe tagsüber nicht mehr als 4–5 Stunden ohne eine proteinhaltige Mahlzeit.');
   if (inputs.goal === 'definition') {
-    advice.push('Consider placing your largest carb meals around training (pre + post workout).');
+    advice.push('Platziere deine kohlenhydratreichsten Mahlzeiten rund ums Training (vor + nach dem Training).');
   }
   return advice;
 }
@@ -79,7 +79,7 @@ export function buildNutritionPlan(inputs: QuestionnaireInputs): NutritionPlan {
     preworkout: preworkoutAdvice(inputs),
     postworkout: postworkoutAdvice(inputs),
     mealTiming: mealTimingAdvice(inputs),
-    hydration: `Drink at least ${(inputs.weight * 0.035).toFixed(1)}L of water daily. Add an extra 500–750ml on training days.`,
+    hydration: `Trinke täglich mindestens ${(inputs.weight * 0.035).toFixed(1)}L Wasser. Füge an Trainingstagen extra 500–750 ml hinzu.`,
     supplements: SUPPLEMENT_RECOMMENDATIONS[inputs.experienceLevel] ?? SUPPLEMENT_RECOMMENDATIONS.beginner,
   };
 }

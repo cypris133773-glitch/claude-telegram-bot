@@ -6,7 +6,7 @@ import { GOALS } from '@/lib/constants';
 export function Step03_Goal() {
   const { step, inputs, updateInputs, nextStep, prevStep } = useQuestionnaireStore();
   return (
-    <StepWrapper step={step} title="What is your primary goal?" onNext={nextStep} onBack={prevStep}>
+    <StepWrapper step={step} title="Was ist dein Hauptziel?" onNext={nextStep} onBack={prevStep}>
       <div className="grid grid-cols-1 gap-4">
         {GOALS.map((g) => (
           <button

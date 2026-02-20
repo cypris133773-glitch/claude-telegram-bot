@@ -7,10 +7,10 @@ import { ACTIVITY_LEVELS } from '@/lib/constants';
 export function Step08_Activity() {
   const { step, inputs, updateInputs, nextStep, prevStep } = useQuestionnaireStore();
   return (
-    <StepWrapper step={step} title="Daily activity & recovery." onNext={nextStep} onBack={prevStep}>
+    <StepWrapper step={step} title="Tägliche Aktivität & Erholung." onNext={nextStep} onBack={prevStep}>
       <div className="space-y-8">
         <div className="space-y-3">
-          <p className="text-xs font-mono text-[#888] uppercase tracking-wider">Non-gym Activity Level</p>
+          <p className="text-xs font-mono text-[#888] uppercase tracking-wider">Aktivitätslevel außerhalb des Gyms</p>
           <div className="space-y-3">
             {ACTIVITY_LEVELS.map((a) => (
               <button key={a.value} onClick={() => updateInputs({ activityLevel: a.value as 'sedentary' | 'moderate' | 'active' })}
@@ -26,10 +26,10 @@ export function Step08_Activity() {
           </div>
         </div>
         <Slider value={inputs.sleepHours} min={4} max={12} step={0.5}
-          onChange={(v) => updateInputs({ sleepHours: v })} label="Avg Sleep" unit=" hrs" />
+          onChange={(v) => updateInputs({ sleepHours: v })} label="Durchschn. Schlaf" unit=" Std." />
         <div className="space-y-3">
           <p className="text-xs font-mono text-[#888] uppercase tracking-wider">
-            Stress Level (1 = none, 5 = high)
+            Stresslevel (1 = keiner, 5 = hoch)
           </p>
           <div className="flex gap-3">
             {[1,2,3,4,5].map((n) => (

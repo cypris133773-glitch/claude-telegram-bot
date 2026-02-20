@@ -4,7 +4,7 @@ import { ProgressBar } from '@/components/ui/ProgressBar';
 import { Button } from '@/components/ui/Button';
 import type { ReactNode } from 'react';
 
-const TOTAL_STEPS = 16;
+const TOTAL_STEPS = 12;
 
 interface StepWrapperProps {
   step: number;
@@ -18,7 +18,7 @@ interface StepWrapperProps {
 }
 
 export function StepWrapper({
-  step, title, subtitle, onNext, onBack, nextDisabled, nextLabel = 'NEXT →', children
+  step, title, subtitle, onNext, onBack, nextDisabled, nextLabel = 'WEITER →', children
 }: StepWrapperProps) {
   return (
     <div className="min-h-screen bg-[#070709] text-[#e8e8e8] flex flex-col">
@@ -26,7 +26,7 @@ export function StepWrapper({
       <div className="px-4 pt-6 pb-4 border-b border-[#17171c]">
         <div className="max-w-2xl mx-auto">
           <p className="text-xs font-mono text-[#555] tracking-widest mb-4">
-            DNA-POWERED TRAINING SYSTEM
+            DNA-GESTEUERTES TRAININGSSYSTEM
           </p>
           <ProgressBar current={step} total={TOTAL_STEPS} />
         </div>
@@ -61,7 +61,7 @@ export function StepWrapper({
       <div className="px-4 pb-8 pt-4 border-t border-[#17171c]">
         <div className="max-w-2xl mx-auto flex justify-between items-center gap-4">
           {onBack ? (
-            <Button variant="ghost" size="sm" onClick={onBack}>← Back</Button>
+            <Button variant="ghost" size="sm" onClick={onBack}>← Zurück</Button>
           ) : <div />}
           <Button size="lg" onClick={onNext} disabled={nextDisabled}>
             {nextLabel}

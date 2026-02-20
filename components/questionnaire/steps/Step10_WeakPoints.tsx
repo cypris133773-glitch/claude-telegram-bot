@@ -16,7 +16,7 @@ export function Step10_WeakPoints() {
   }
 
   return (
-    <StepWrapper step={step} title="Weak points to prioritise." subtitle="We'll add extra volume to these muscle groups."
+    <StepWrapper step={step} title="Schwachpunkte priorisieren." subtitle="Wir fügen diesen Muskelgruppen zusätzliches Volumen hinzu."
       onNext={nextStep} onBack={prevStep}>
       <div className="flex flex-wrap gap-3">
         {MUSCLE_GROUPS.map((m) => (

@@ -16,12 +16,12 @@ export function Step09_Nutrition() {
   }
 
   return (
-    <StepWrapper step={step} title="Nutrition preferences." onNext={nextStep} onBack={prevStep}>
+    <StepWrapper step={step} title="Ernährungspräferenzen." onNext={nextStep} onBack={prevStep}>
       <div className="space-y-8">
         <Slider value={inputs.mealsPerDay} min={2} max={7}
-          onChange={(v) => updateInputs({ mealsPerDay: v })} label="Meals Per Day" unit=" meals" />
+          onChange={(v) => updateInputs({ mealsPerDay: v })} label="Mahlzeiten pro Tag" unit=" Mzl." />
         <div className="space-y-3">
-          <p className="text-xs font-mono text-[#888] uppercase tracking-wider">Dietary Restrictions</p>
+          <p className="text-xs font-mono text-[#888] uppercase tracking-wider">Ernährungseinschränkungen</p>
           <div className="flex flex-wrap gap-3">
             {DIETARY_RESTRICTIONS.map((d) => (
               <Tag key={d.value} label={d.label}

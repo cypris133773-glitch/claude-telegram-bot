@@ -23,9 +23,9 @@ export function DayCard({ day }: DayCardProps) {
         </div>
         <div className="text-right">
           <span className="text-xs font-mono text-[#d4ff00] bg-[rgba(212,255,0,0.1)] border border-[rgba(212,255,0,0.2)] px-2 py-1 rounded-full">
-            {day.duration} min
+            {day.duration} Min.
           </span>
-          <p className="text-xs font-mono text-[#555] mt-1">{day.exercises.length} exercises</p>
+          <p className="text-xs font-mono text-[#555] mt-1">{day.exercises.length} Übungen</p>
         </div>
       </div>
 

@@ -30,8 +30,8 @@ export function SwapModal({ exercise, onClose }: SwapModalProps) {
       >
         <div className="p-5 border-b border-[#17171c] flex items-center justify-between">
           <div>
-            <h3 className="font-mono font-bold text-[#e8e8e8]">Swap Exercise</h3>
-            <p className="text-xs font-mono text-[#888] mt-0.5">Replacing: {exercise.exercise.name}</p>
+            <h3 className="font-mono font-bold text-[#e8e8e8]">Übung tauschen</h3>
+            <p className="text-xs font-mono text-[#888] mt-0.5">Ersetze: {exercise.exercise.name}</p>
           </div>
           <button onClick={onClose} className="text-[#888] hover:text-[#e8e8e8] font-mono text-xl">✕</button>
         </div>
@@ -39,7 +39,7 @@ export function SwapModal({ exercise, onClose }: SwapModalProps) {
         <div className="p-5 space-y-3">
           {alts.length === 0 ? (
             <p className="text-sm font-mono text-[#888] text-center py-8">
-              No alternatives defined for this exercise.
+              Keine Alternativen für diese Übung definiert.
             </p>
           ) : alts.map((alt) => alt && (
             <button
