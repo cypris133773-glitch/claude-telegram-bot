@@ -42,3 +42,9 @@ next-env.d.ts
 *.db-journal
 *.db-shm
 *.db-wal
+
+# Capacitor Android build outputs
+android/.gradle/
+android/app/build/
+android/build/
+android/local.properties

@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import type { QuestionnaireInputs } from '@/types';
+import type { QuestionnaireInputs, GeneratedPlan } from '@/types';
 
 const DEFAULT_INPUTS: QuestionnaireInputs = {
   age: 25,
@@ -29,10 +29,12 @@ const DEFAULT_INPUTS: QuestionnaireInputs = {
 interface QuestionnaireState {
   step: number;
   inputs: QuestionnaireInputs;
+  plan: GeneratedPlan | null;
   setStep: (step: number) => void;
   nextStep: () => void;
   prevStep: () => void;
   updateInputs: (partial: Partial<QuestionnaireInputs>) => void;
+  setPlan: (plan: GeneratedPlan) => void;
   reset: () => void;
 }
 
@@ -41,12 +43,14 @@ export const useQuestionnaireStore = create<QuestionnaireState>()(
     (set) => ({
       step: 1,
       inputs: DEFAULT_INPUTS,
+      plan: null,
       setStep: (step) => set({ step }),
       nextStep: () => set((s) => ({ step: Math.min(16, s.step + 1) })),
       prevStep: () => set((s) => ({ step: Math.max(1, s.step - 1) })),
       updateInputs: (partial) =>
         set((s) => ({ inputs: { ...s.inputs, ...partial } })),
-      reset: () => set({ step: 1, inputs: DEFAULT_INPUTS }),
+      setPlan: (plan) => set({ plan }),
+      reset: () => set({ step: 1, inputs: DEFAULT_INPUTS, plan: null }),
     }),
     { name: 'dnpt-questionnaire' }
   )

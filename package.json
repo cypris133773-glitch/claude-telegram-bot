@@ -9,6 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@capacitor/android": "^8.1.0",
+    "@capacitor/cli": "^8.1.0",
+    "@capacitor/core": "^8.1.0",
     "@next-auth/prisma-adapter": "^1.0.7",
     "@prisma/adapter-better-sqlite3": "^7.4.1",
     "@prisma/client": "^7.4.1",

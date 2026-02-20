@@ -34,23 +34,16 @@ const STEPS = [
 ];
 
 export default function QuestionnairePage() {
-  const { step, inputs } = useQuestionnaireStore();
+  const { step, inputs, setPlan } = useQuestionnaireStore();
   const router = useRouter();
 
-  // Steps 13-16 are handled by generating the plan and redirecting
   useEffect(() => {
     if (step > STEPS.length) {
       const plan = buildPlan(inputs);
-      fetch('/api/plans', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(inputs),
-      })
-        .then((r) => r.json())
-        .then((data) => router.push(`/plan/${data.id}`))
-        .catch(() => router.push(`/plan/${plan.id}`));
+      setPlan(plan);
+      router.push('/plan');
     }
-  }, [step, inputs, router]);
+  }, [step, inputs, setPlan, router]);
 
   const idx = Math.min(step - 1, STEPS.length - 1);
   const CurrentStep = STEPS[idx];
