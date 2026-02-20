@@ -48,7 +48,9 @@ function pickExercises(
 }
 
 function getScheme(ex: Exercise, goal: Goal, experienceLevel: string): SetsRepsScheme {
-  const base = ex.recommendedSetsReps[goal];
+  // 'health' goal uses definition scheme (moderate volume, higher reps)
+  const effectiveGoal: Exclude<Goal, 'health'> = goal === 'health' ? 'definition' : goal;
+  const base = ex.recommendedSetsReps[effectiveGoal];
   const setMod = experienceLevel === 'beginner' ? -1 : experienceLevel === 'advanced' ? 1 : 0;
   return {
     ...base,
@@ -191,7 +193,28 @@ function buildProgressionGuide(inputs: QuestionnaireInputs): ProgressionGuide {
 
 // ─── Main builder ─────────────────────────────────────────────────────────────
 
-export function buildPlan(inputs: QuestionnaireInputs): GeneratedPlan {
+export function buildPlan(rawInputs: QuestionnaireInputs): GeneratedPlan {
+  // Apply safe defaults for fields that may be missing after the 5-step questionnaire
+  const safeDefaults: Partial<QuestionnaireInputs> = {
+    sessionDuration: 60,
+    activityLevel: 'moderate',
+    sleepHours: 7,
+    stressLevel: 3,
+    dietaryRestrictions: [],
+    mealsPerDay: 4,
+    weakPoints: [],
+    includeCardio: false,
+    cardioPreference: 'none',
+    hasGym: true,
+    trainingYears: 1,
+  };
+  const inputs: QuestionnaireInputs = {
+    ...safeDefaults,
+    ...rawInputs,
+    injuries: rawInputs.injuries ?? [],
+    currentLifts: rawInputs.currentLifts ?? {},
+    equipment: rawInputs.equipment?.length ? rawInputs.equipment : ['bodyweight'],
+  };
   let weeklyPlan: WeeklyPlan;
   switch (inputs.trainingDays) {
     case 2:  weeklyPlan = build2Day(inputs); break;
@@ -241,7 +264,7 @@ export function buildPlan(inputs: QuestionnaireInputs): GeneratedPlan {
 
   const id = `plan-${inputs.age}-${inputs.weight}-${inputs.trainingDays}-${inputs.goal}`;
   const goalLabels: Record<string, string> = {
-    strength: 'Kraft', hypertrophy: 'Muskelaufbau', definition: 'Definition', recomp: 'Recomp'
+    strength: 'Kraft', hypertrophy: 'Muskelaufbau', definition: 'Definition', recomp: 'Recomp', health: 'Gesundheit'
   };
 
   return {

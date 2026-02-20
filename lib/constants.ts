@@ -19,13 +19,15 @@ export const INJURIES = [
 ];
 
 export const EQUIPMENT_OPTIONS: { value: Equipment; label: string }[] = [
-  { value: 'barbell',    label: 'Langhantel' },
-  { value: 'dumbbell',   label: 'Kurzhanteln' },
-  { value: 'cable',      label: 'Kabelzug' },
-  { value: 'machine',    label: 'Maschinen' },
-  { value: 'bodyweight', label: 'Körpergewicht' },
-  { value: 'bands',      label: 'Widerstandsbänder' },
-  { value: 'kettlebell', label: 'Kettlebell' },
+  { value: 'barbell',      label: 'Langhantel' },
+  { value: 'dumbbell',     label: 'Kurzhanteln' },
+  { value: 'cable',        label: 'Kabelzug' },
+  { value: 'machine',      label: 'Maschinen' },
+  { value: 'pull-up-bar',  label: 'Klimmzugstange' },
+  { value: 'dip-station',  label: 'Dip-Station' },
+  { value: 'kettlebell',   label: 'Kettlebell' },
+  { value: 'bands',        label: 'Widerstandsband' },
+  { value: 'bodyweight',   label: 'Körpergewicht' },
 ];
 
 export const WEAK_POINTS: { id: MuscleGroup; label: string }[] = [
@@ -51,10 +53,11 @@ export const SPLIT_NAMES: Record<number, string> = {
 };
 
 export const GOAL_LABELS: Record<string, string> = {
-  strength: 'Maximale Kraft',
+  strength: 'Kraft',
   hypertrophy: 'Muskelaufbau',
-  definition: 'Definition & Schnitt',
-  recomp: 'Body Recomposition',
+  definition: 'Definition',
+  recomp: 'Recomposition',
+  health: 'Gesundheit',
 };
 
 export const GOAL_DESCRIPTIONS: Record<string, string> = {
@@ -62,6 +65,7 @@ export const GOAL_DESCRIPTIONS: Record<string, string> = {
   hypertrophy: 'Muskelgröße durch optimales Volumen und Muskelspannung maximieren.',
   definition: 'Muskeldefinition durch höhere Wiederholungszahlen und Konditionierung herausarbeiten.',
   recomp: 'Gleichzeitig Muskeln aufbauen und Fett verlieren — ideal für Fortgeschrittene.',
+  health: 'Fit & gesund bleiben mit ausgewogenem Training für Körper und Geist.',
 };
 
 export const EXPERIENCE_DESCRIPTIONS: Record<string, string> = {
@@ -100,16 +104,17 @@ export const SUPPLEMENT_RECOMMENDATIONS: Record<string, string[]> = {
 
 // ─── Aliases with .value prop for step components ─────────────────────────
 export const EXPERIENCE_LEVELS = [
-  { value: 'beginner',     label: 'Anfänger',       description: '< 1 Jahr konsequentes Training' },
-  { value: 'intermediate', label: 'Fortgeschritten', description: '1–3 Jahre konsequentes Training' },
-  { value: 'advanced',     label: 'Experte',         description: '3+ Jahre konsequentes Training' },
+  { value: 'beginner',     label: 'Anfänger',       description: '0–6 Monate' },
+  { value: 'intermediate', label: 'Fortgeschritten', description: '6 Monate – 2 Jahre' },
+  { value: 'advanced',     label: 'Profi',           description: '2+ Jahre' },
 ];
 
 export const GOALS = [
-  { value: 'strength',    label: 'Maximale Kraft',      icon: '💪', description: 'Maximale Kraft mit Grundübungen und progressiver Überlastung aufbauen.' },
-  { value: 'hypertrophy', label: 'Muskelaufbau',        icon: '🏋️', description: 'Muskelgröße durch optimales Volumen und Muskelspannung maximieren.' },
-  { value: 'definition',  label: 'Definition & Schnitt', icon: '🔥', description: 'Muskeldefinition durch höhere Wiederholungszahlen und Konditionierung herausarbeiten.' },
-  { value: 'recomp',      label: 'Body Recomposition',  icon: '⚖️', description: 'Gleichzeitig Muskeln aufbauen und Fett verlieren — ideal für Fortgeschrittene.' },
+  { value: 'hypertrophy', label: 'Muskelaufbau',        icon: '🏋️', description: 'Muskelmasse durch optimales Volumen und Muskelspannung aufbauen.' },
+  { value: 'strength',    label: 'Kraft',               icon: '💪', description: 'Maximale Kraft mit Grundübungen und progressiver Überlastung steigern.' },
+  { value: 'definition',  label: 'Definition',          icon: '🔥', description: 'Körperdefinition durch höhere Wiederholungszahlen und Konditionierung.' },
+  { value: 'recomp',      label: 'Recomposition',       icon: '⚖️', description: 'Gleichzeitig Muskeln aufbauen und Fett verlieren.' },
+  { value: 'health',      label: 'Gesundheit',          icon: '❤️', description: 'Fit & gesund bleiben mit ausgewogenem Training.' },
 ];
 
 export const SPLIT_LABELS: Record<number, string> = {
