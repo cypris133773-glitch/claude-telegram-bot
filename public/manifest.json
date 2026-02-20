@@ -1,0 +1,15 @@
+{
+  "name": "DNA Fitness — Personalised Training Plans",
+  "short_name": "DNA Fitness",
+  "description": "Science-based personalised training and nutrition plans.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#070709",
+  "theme_color": "#070709",
+  "orientation": "portrait-primary",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ],
+  "categories": ["health", "fitness", "sports"]
+}
