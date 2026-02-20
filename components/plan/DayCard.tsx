@@ -14,18 +14,18 @@ export function DayCard({ day }: DayCardProps) {
   const [swapping, setSwapping] = useState<PlannedExercise | null>(null);
 
   return (
-    <div className="bg-[#0d0d10] border border-[#2a2a35] rounded-2xl overflow-hidden">
+    <div className="bg-[#0d0d1f] border border-[#1e1b4b] rounded-2xl overflow-hidden print:break-inside-avoid print:border print:border-gray-300 print:rounded-lg">
       {/* Header */}
-      <div className="p-5 border-b border-[#17171c] flex items-start justify-between">
+      <div className="p-5 border-b border-[#1e1b4b] flex items-start justify-between bg-gradient-to-r from-[#0d0d1f] to-[#12102a]">
         <div>
-          <h3 className="font-mono font-bold text-lg text-[#e8e8e8]">{day.name}</h3>
-          <p className="text-xs font-mono text-[#888] mt-0.5">{day.focus}</p>
+          <h3 className="font-mono font-bold text-lg text-white">{day.name}</h3>
+          <p className="text-xs font-mono text-[#8080a8] mt-0.5">{day.focus}</p>
         </div>
         <div className="text-right">
-          <span className="text-xs font-mono text-[#d4ff00] bg-[rgba(212,255,0,0.1)] border border-[rgba(212,255,0,0.2)] px-2 py-1 rounded-full">
+          <span className="text-xs font-mono text-[#818cf8] bg-[rgba(129,140,248,0.1)] border border-[rgba(129,140,248,0.2)] px-2 py-1 rounded-full">
             {day.duration} Min.
           </span>
-          <p className="text-xs font-mono text-[#555] mt-1">{day.exercises.length} Übungen</p>
+          <p className="text-xs font-mono text-[#4040a0] mt-1">{day.exercises.length} Übungen</p>
         </div>
       </div>
 

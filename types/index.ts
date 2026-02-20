@@ -36,6 +36,8 @@ export interface Exercise {
   formCues: string[];
   commonMistakes: string[];
   alternatives: string[];
+  pros?: string[];
+  cons?: string[];
   videoPlaceholder?: string;
 }
 

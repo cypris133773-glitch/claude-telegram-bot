@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { AnimatePresence } from 'framer-motion';
 import { useQuestionnaireStore } from '@/store/questionnaire';
+import { usePlansStore } from '@/store/plans';
 import { buildPlan } from '@/lib/plan-builder';
 
 import { Step01_Basics } from '@/components/questionnaire/steps/Step01_Basics';
@@ -35,15 +36,17 @@ const STEPS = [
 
 export default function QuestionnairePage() {
   const { step, inputs, setPlan } = useQuestionnaireStore();
+  const { addPlan } = usePlansStore();
   const router = useRouter();
 
   useEffect(() => {
     if (step > STEPS.length) {
       const plan = buildPlan(inputs);
       setPlan(plan);
+      addPlan(plan);
       router.push('/plan');
     }
-  }, [step, inputs, setPlan, router]);
+  }, [step, inputs, setPlan, addPlan, router]);
 
   const idx = Math.min(step - 1, STEPS.length - 1);
   const CurrentStep = STEPS[idx];

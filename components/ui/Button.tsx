@@ -15,11 +15,11 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         ref={ref}
         disabled={disabled || loading}
         className={clsx(
-          'inline-flex items-center justify-center font-mono font-bold tracking-widest uppercase transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#d4ff00] focus-visible:ring-offset-2 focus-visible:ring-offset-[#070709] disabled:opacity-40 disabled:cursor-not-allowed',
+          'inline-flex items-center justify-center font-mono font-bold tracking-widest uppercase transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#818cf8] focus-visible:ring-offset-2 focus-visible:ring-offset-[#06061a] disabled:opacity-40 disabled:cursor-not-allowed',
           {
-            'bg-[#d4ff00] text-[#070709] hover:bg-[#c0e800] shadow-[0_0_20px_rgba(212,255,0,0.3)] hover:shadow-[0_0_30px_rgba(212,255,0,0.5)]': variant === 'primary',
-            'bg-transparent text-[#d4ff00] hover:bg-[rgba(212,255,0,0.08)] border border-[#d4ff00]': variant === 'outline',
-            'bg-transparent text-[#888] hover:text-[#e8e8e8] hover:bg-[#17171c]': variant === 'ghost',
+            'bg-gradient-to-r from-[#6366f1] to-[#8b5cf6] text-white hover:from-[#4f46e5] hover:to-[#7c3aed] shadow-[0_0_24px_rgba(99,102,241,0.4)] hover:shadow-[0_0_36px_rgba(99,102,241,0.6)]': variant === 'primary',
+            'bg-transparent text-[#818cf8] hover:bg-[rgba(129,140,248,0.1)] border border-[#818cf8]': variant === 'outline',
+            'bg-transparent text-[#9090b0] hover:text-[#e8e8f0] hover:bg-[#1a1a2e]': variant === 'ghost',
             'bg-red-900/30 text-red-400 hover:bg-red-900/50 border border-red-800': variant === 'danger',
             'text-xs px-3 py-1.5 rounded': size === 'sm',
             'text-sm px-5 py-2.5 rounded-md': size === 'md',
