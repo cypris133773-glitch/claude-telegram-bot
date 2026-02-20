@@ -21,18 +21,22 @@ const STEPS = [
 ];
 
 export default function QuestionnairePage() {
-  const { step, inputs, setPlan } = useQuestionnaireStore();
+  const { step, inputs, setPlan, reset } = useQuestionnaireStore();
   const { addPlan } = usePlansStore();
   const router = useRouter();
 
   useEffect(() => {
+    if (step < 1 || step > 6) {
+      reset();
+      return;
+    }
     if (step > STEPS.length) {
       const plan = buildPlan(inputs);
       setPlan(plan);
       addPlan(plan);
       router.push('/plan');
     }
-  }, [step, inputs, setPlan, addPlan, router]);
+  }, [step, inputs, setPlan, addPlan, reset, router]);
 
   const idx = Math.min(step - 1, STEPS.length - 1);
   const CurrentStep = STEPS[idx];
