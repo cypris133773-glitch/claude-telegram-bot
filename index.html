@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#0e0e0f">
+  <title>AlphaProgression – Deutsch</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+
+  <!-- TOP BAR -->
+  <header id="topbar">
+    <div class="topbar-logo">
+      💪 <span>Alpha</span>Progression
+    </div>
+    <div style="font-size:0.78rem;color:var(--text-muted)">DE 🇩🇪</div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main id="main-content">
+    <!-- Rendered by JS -->
+    <div style="text-align:center;padding:3rem;color:var(--text-muted)">Wird geladen...</div>
+  </main>
+
+  <!-- BOTTOM NAVIGATION -->
+  <nav id="bottom-nav">
+    <button class="nav-item active" data-seite="dashboard" onclick="navigate('dashboard')">
+      <span class="nav-icon">🏠</span>
+      Dashboard
+    </button>
+    <button class="nav-item" data-seite="uebungen" onclick="navigate('uebungen')">
+      <span class="nav-icon">📚</span>
+      Übungen
+    </button>
+    <button class="nav-item" data-seite="plaene" onclick="navigate('plaene')">
+      <span class="nav-icon">📋</span>
+      Pläne
+    </button>
+    <button class="nav-item" data-seite="training" onclick="navigate('training')">
+      <span class="nav-icon">⚡</span>
+      Training
+    </button>
+    <button class="nav-item" data-seite="fortschritt" onclick="navigate('fortschritt')">
+      <span class="nav-icon">📈</span>
+      Fortschritt
+    </button>
+    <button class="nav-item" data-seite="profil" onclick="navigate('profil')">
+      <span class="nav-icon">👤</span>
+      Profil
+    </button>
+  </nav>
+
+</div>
+<script src="app.js"></script>
+</body>
+</html>
